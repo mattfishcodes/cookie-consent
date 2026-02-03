@@ -7,7 +7,7 @@ import {
   updateConsent,
 } from "./src/state";
 
-export default function initConsent({ gtmId }: { gtmId: string | undefined }) {
+function initConsent({ gtmId }: { gtmId: string | undefined }) {
   if (gtmId === undefined) {
     console.error("Must provide a Google Tag Manager id");
     return;

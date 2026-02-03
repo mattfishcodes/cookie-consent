@@ -14,10 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build:esm": "esbuild index.ts --bundle --format=esm --loader:.css=text --outfile=dist/index.js",
-    "build:iife": "esbuild index.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.js",
-    "build:types": "tsc",
-    "build": "rm -rf dist && pnpm build:esm && pnpm build:iife && pnpm build:types"
+    "build": "rm -rf dist && esbuild index.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.iife.js"
   },
   "packageManager": "pnpm@10.28.1",
   "devDependencies": {
