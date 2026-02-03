@@ -2,7 +2,11 @@
   "name": "cookie-consent",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/consent.iife.js"
+    }
+  },
   "scripts": {
     "build": "vite build"
   },
