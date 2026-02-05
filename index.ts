@@ -1,3 +1,5 @@
-import { initConsent } from "./src/init";
+"use client";
 
-export default initConsent;
+import ConsentProvider from "./src/ConsentProvider";
+
+export default ConsentProvider;

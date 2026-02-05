@@ -1,6 +1,6 @@
 {
   "name": "cookie-consent",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
@@ -16,15 +16,23 @@
   ],
   "scripts": {
     "build:iife": "esbuild iife.ts --bundle --minify --format=iife --loader:.css=text --outfile=dist/consent.iife.js",
-    "build:esm": "esbuild index.ts --bundle --minify --format=esm --loader:.css=text --outfile=dist/index.js",
+    "build:esm": "esbuild index.ts --bundle --minify --format=esm --external:react --external:react-dom --loader:.css=text --outfile=dist/index.js",
     "build:types": "tsc",
     "build": "rm -rf dist && pnpm build:iife && pnpm build:esm && pnpm build:types"
   },
   "packageManager": "pnpm@10.28.2",
   "devDependencies": {
     "@types/node": "^25.2.0",
+    "@types/react": "^19.2.11",
+    "@types/react-dom": "^19.2.3",
     "esbuild": "^0.27.2",
     "husky": "^9.1.7",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   }
 }
