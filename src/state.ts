@@ -38,12 +38,20 @@ export function getStoredConsent(consentKey: string) {
   return JSON.parse(consent)
 }
 
-export function storeConsent(consent: Consent, consentKey: string) {
-  document.cookie = `${consentKey}=${JSON.stringify(consent)}; SameSite=None; Secure; domain=.crackerjacksolutions.com; path=/`
+export function storeConsent(
+  consent: Consent,
+  consentKey: string,
+  domain: string | undefined,
+) {
+  document.cookie = `${consentKey}=${JSON.stringify(consent)}; SameSite=None; Secure;${domain ? ` domain=${domain};` : ''} path=/`
 }
 
-export function saveAndApply(consent: Consent, consentKey: string) {
-  storeConsent(consent, consentKey)
+export function saveAndApply(
+  consent: Consent,
+  consentKey: string,
+  domain: string | undefined,
+) {
+  storeConsent(consent, consentKey, domain)
   updateConsent(consent)
 
   window.dispatchEvent(new CustomEvent('consent:change', { detail: consent }))

@@ -4,7 +4,13 @@ import { createBanner } from './shadow-ui'
 import exposePublicAPI from './api'
 import { consentKey } from './gtm'
 
-export function initConsent({ gtmId }: { gtmId: string | undefined }) {
+export function initConsent({
+  gtmId,
+  domain,
+}: {
+  gtmId: string | undefined
+  domain: string | undefined
+}) {
   if (gtmId === undefined) {
     console.error('Must provide a Google Tag Manager id')
     return
@@ -30,5 +36,5 @@ export function initConsent({ gtmId }: { gtmId: string | undefined }) {
     createBanner()
   }
 
-  exposePublicAPI()
+  exposePublicAPI(domain)
 }

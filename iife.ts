@@ -5,5 +5,6 @@ const script = document.currentScript as HTMLScriptElement
 window.onload = () => {
   initConsent({
     gtmId: script?.dataset.gtm,
+    domain: script?.dataset.domain,
   })
 }

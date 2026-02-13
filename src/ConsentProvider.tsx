@@ -5,8 +5,10 @@ import { useEffect } from 'react'
 
 export default function ConsentProvider({
   gtmId,
+  domain,
 }: {
   gtmId: string | undefined
+  domain: string | undefined
 }) {
   useEffect(() => {
     if (gtmId === undefined) {
@@ -15,7 +17,7 @@ export default function ConsentProvider({
       }
       return
     }
-    initConsent({ gtmId })
+    initConsent({ gtmId, domain })
   }, [])
 
   return null

@@ -1,1 +1,1 @@
-export default function exposePublicAPI(): void;
+export default function exposePublicAPI(domain: string | undefined): void;
